@@ -27,8 +27,7 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   position: relative;
-  display: grid;
-  place-content: center;
+  background-color: #3f3f3f;
   font-family: "Roboto", sans-serif;
 }
 
