@@ -16,7 +16,7 @@ function App() {
 
   return (
     <React.Fragment>
-      {isCartVisible && <Cart />}
+      {isCartVisible && <Cart onHideCart={handleHideCart} />}
       <Header onShowCart={handleShowCart} />
       <main>
         <Meals />

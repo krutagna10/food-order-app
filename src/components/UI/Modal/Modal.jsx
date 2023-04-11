@@ -1,30 +1,21 @@
 import React from "react";
+import Backdrop from "../Backdrop/Backdrop.jsx";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
-function Backdrop(props) {
-  return <div className={classes.backdrop}></div>;
-}
+function Modal({ children, onHideCart }) {
+  const portalElement = document.getElementById("modal");
 
-function ModalOverlay(props) {
-  return (
+  const modalElement = (
     <div className={classes.modal}>
-      <div className={classes.content}>{props.children}</div>
+      <div className={classes.content}>{children}</div>
     </div>
   );
-}
 
-const portalElement = document.getElementById("overlays");
-
-function Modal(props) {
   return (
     <React.Fragment>
-      {ReactDOM.createPortal(<Backdrop />, portalElement)}
-      {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
-        portalElement
-      )}
-      {}
+      <Backdrop onHideCart={onHideCart} />
+      {ReactDOM.createPortal(modalElement, portalElement)}
     </React.Fragment>
   );
 }
