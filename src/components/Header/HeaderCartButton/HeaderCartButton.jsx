@@ -5,14 +5,17 @@ import { cart } from "ionicons/icons";
 import classes from "./HeaderCartButton.module.css";
 
 function HeaderCartButton({ onShowCart }) {
-  const cartItems = useContext(CartContext);
-  console.log(cartItems);
+  const { items, totalAmount } = useContext(CartContext);
+
+  const numberOfItems = items.reduce((acc, item) => {
+    return acc + item.amount;
+  }, 0);
 
   return (
     <button className={classes.button} onClick={onShowCart}>
       <IonIcon className={classes.icon} icon={cart} />
       <span>Your Cart</span>
-      <span className={classes.badge}>3</span>
+      <span className={classes.badge}>{numberOfItems}</span>
     </button>
   );
 }
