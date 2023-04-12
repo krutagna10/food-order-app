@@ -19,7 +19,6 @@ function App() {
     <CardProvider>
       {isCartVisible && <Cart onHideCart={handleHideCart} />}
       <Header onShowCart={handleShowCart} />
-      <h1>Hello World I am KRutagna</h1>
       <main>
         <Meals />
       </main>
