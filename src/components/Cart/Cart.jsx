@@ -6,13 +6,13 @@ import React from "react";
 import classes from "./Cart.module.css";
 
 function Cart({ onHideCart }) {
-  const { items, totalAmount } = useContext(CartContext);
+  const { items } = useContext(CartContext);
+
+  const totalAmount = items.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
 
   const hasItems = items.length > 0;
-
-  function handleAddItem() {}
-
-  function handleRemoveItem() {}
 
   return (
     <Modal onHideCart={onHideCart}>
