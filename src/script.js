@@ -1,9 +1,11 @@
-const person = {
-  name: "Krutagna",
-  age: 20,
-  gender: "male",
-  isStudent: true,
-};
+const items = [
+  { id: 1, name: "pizza", quantity: 1 },
+  { id: 2, name: "burger", quantity: 1 },
+];
 
-const { name, age, gender, isStudent } = person;
-console.table({ name, age, gender, isStudent });
+function handleAddItem({ id, name, quantity }) {
+  console.log(id, name, quantity);
+}
+
+const newItem = { id: 2, name: "french-fries", quantity: 5 };
+handleAddItem({ ...newItem });

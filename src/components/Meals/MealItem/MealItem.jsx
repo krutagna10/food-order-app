@@ -6,11 +6,11 @@ import classes from "./MealItem.module.css";
 function MealItem({ id, name, description, price }) {
   const { onAddItem } = useContext(CartContext);
 
-  function handleAddToCart(amount) {
+  function handleAddToCart(quantity) {
     onAddItem({
       id: id,
       name: name,
-      amount: amount,
+      quantity: quantity,
       price: price,
     });
   }

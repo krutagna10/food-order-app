@@ -4,33 +4,28 @@ import classes from "./MealItemForm.module.css";
 
 function MealItemForm({ onAddToCart }) {
   const amountInputRef = useRef(null);
-  const [isAmountValid, setIsAmountValid] = useState(true);
+  const [isQuantityValid, setIsQuantityValid] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value;
-    const enteredAmountValue = Number(enteredAmount);
+    const quantity = Number(amountInputRef.current.value);
 
-    if (
-      enteredAmount.trim().length === 0 ||
-      enteredAmountValue < 1 ||
-      enteredAmount > 5
-    ) {
-      setIsAmountValid(false);
+    if (quantity < 1 || quantity > 5) {
+      setIsQuantityValid(false);
       return;
     }
 
-    onAddToCart(enteredAmountValue);
+    onAddToCart(quantity);
   }
 
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <Input
         ref={amountInputRef}
-        label="Amount"
+        label="Quantity"
         input={{
-          id: "amount",
+          id: "quantity",
           type: "number",
           min: "1",
           max: "5",
@@ -39,7 +34,7 @@ function MealItemForm({ onAddToCart }) {
         }}
       />
       <button>Add</button>
-      {!isAmountValid && <p>Please enter a valid amount (1 - 5)</p>}
+      {!isQuantityValid && <p>Please enter a valid quantity (1 - 5)</p>}
     </form>
   );
 }

@@ -5,10 +5,10 @@ import { cart } from "ionicons/icons";
 import classes from "./HeaderCartButton.module.css";
 
 function HeaderCartButton({ onShowCart }) {
-  const { items, totalAmount } = useContext(CartContext);
+  const { items } = useContext(CartContext);
 
   const numberOfItems = items.reduce((acc, item) => {
-    return acc + item.amount;
+    return acc + item.quantity;
   }, 0);
 
   return (
