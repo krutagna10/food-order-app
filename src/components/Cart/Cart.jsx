@@ -17,14 +17,14 @@ function Cart({ onHideCart }) {
   return (
     <Modal onHideCart={onHideCart}>
       <ul className={classes["cart-items"]}>
-        {hasItems ? (
+        {items.length > 0 ? (
           <>
             {items.map((item) => (
               <CartItem key={item.id} item={item} />
             ))}
           </>
         ) : (
-          <h2>No items in the cart</h2>
+          <p>No items in the cart</p>
         )}
       </ul>
       <div className={classes.total}>

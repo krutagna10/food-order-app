@@ -32,9 +32,7 @@ function reducer(items, action) {
             ? { ...item, quantity: item.quantity - 1 }
             : item;
         })
-        .filter((item) => {
-          return item.quantity > 0;
-        });
+        .filter((item) => item.quantity > 0);
 
       return nextItems;
     }
