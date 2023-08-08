@@ -22,3 +22,17 @@
     transform: translateY(0);
   }
 }
+
+.loading {
+  min-height: 30vh;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+
+.error {
+  min-height: 30vh;
+  color: lightcoral;
+  display: grid;
+  place-content: center;
+}

@@ -4,9 +4,15 @@ import CartItem from "./CartItem/CartItem.jsx";
 import { useContext } from "react";
 import React from "react";
 import classes from "./Cart.module.css";
+import { useState } from "react";
 
 function Cart({ onHideCart }) {
   const { items } = useContext(CartContext);
+  const [isCheckout, setIsCheckout] = useState(false);
+
+  function handeOrder() {
+    setIsCheckout(true);
+  }
 
   const totalAmount = items.reduce((acc, item) => {
     return acc + item.price * item.quantity;
@@ -35,7 +41,11 @@ function Cart({ onHideCart }) {
         <button onClick={onHideCart} className={classes["button-alt"]}>
           Close
         </button>
-        {hasItems && <button className={classes.button}>Order</button>}
+        {hasItems && (
+          <button onClick={handeOrder} className={classes.button}>
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );
